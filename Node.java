@@ -1,12 +1,10 @@
 public class Node {
 	private int val;
 	private Node next;
-	private boolean start;
 	private boolean end;
 	
 	public Node(int x, boolean s) {
 		val = x;
-		start = s;
 		end = true;
 		next = null;
 	}
@@ -22,6 +20,10 @@ public class Node {
 	
 	public Node getNext() {
 		return next;
+	}
+	
+	public boolean isEnd() {
+		return end;
 	}
 
 }
