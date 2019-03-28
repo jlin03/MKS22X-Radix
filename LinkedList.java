@@ -6,11 +6,13 @@ public class LinkedList {
 	public LinkedList() {
 		start = null;
 		end = null;
+		next = null;
 	}
 	
 	public LinkedList(Node s, Node e) {
 		start = s;
 		end = e;
+		next = null;
 	}
 	
 	public void add(int x) {
@@ -23,13 +25,18 @@ public class LinkedList {
 			end.setNext(n);
 			end = n;
 		}
-		
 	}
 	
+	public Node getStart() {
+		return start;
+	}
 	
+	public void setNext(LinkedList n) {
+		next = n;
+	}
 	
-	
-	
-	
-	
+	public LinkedList getNext() {
+		return next;
+	}
+
 }
