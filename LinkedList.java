@@ -32,8 +32,8 @@ public class LinkedList {
 		return start;
 	}
 	
-	public void toString() {
-		out = "[ ";
+	public String toString() {
+		String out = "[ ";
 		Node current = start;
 		while(!current.isEnd()) {
 			out += current.getVal() + " ";
