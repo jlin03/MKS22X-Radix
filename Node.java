@@ -3,7 +3,7 @@ public class Node {
 	private Node next;
 	private boolean end;
 	
-	public Node(int x, boolean s) {
+	public Node(int x) {
 		val = x;
 		end = true;
 		next = null;
