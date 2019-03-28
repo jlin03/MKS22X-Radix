@@ -15,14 +15,25 @@ public class Radix {
 			passAgain = false;
 			Node current = l.getStart();
 			for(int i = 0; i < data.length; i++) {
-				freq[(current/Math.pow(10,step-1)) % 10]
+				if(current/Math.pow(10,step) != 0) {
+					passAgain = true;
+				}
+				freq[(current/Math.pow(10,step-1)) % 10].add(current);
+				current = current.getNext();
 			}
-			
-			
+			for(int i = 0; i < freq.length-1; i++) {
+				freq[i+1] = LinkedList.merge(freq[i],freq[i+1]);
+			}
+			l = freq[9];
 		}
-		
-		
+		for(int i = 0; i < data.length; i++) {
+			Node current = l.getStart();
+			data[i] = current.getVal();
+			current = current.getNext();
+		}
 	}
+	
+	public 
 	
 	
 	
