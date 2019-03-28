@@ -33,6 +33,12 @@ public class LinkedList {
 	}
 	
 	public static LinkedList merge(LinkedList one, LinkedList two) {
+		if(one == null) {
+			return two;
+		}
+		if(two == null) {
+			return one;
+		}
 		one.getEnd().setNext(two.getStart());
 		return new LinkedList(one.getStart(),two.getEnd());
 	}
