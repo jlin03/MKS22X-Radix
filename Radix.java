@@ -1,3 +1,4 @@
+import java.util.*;
 public class Radix {
 	
 	public static void sort(int[] data) {
@@ -15,25 +16,41 @@ public class Radix {
 			passAgain = false;
 			Node current = l.getStart();
 			for(int i = 0; i < data.length; i++) {
-				if(current/Math.pow(10,step) != 0) {
+				if(current.getVal()/(int)Math.pow(10,step) != 0) {
 					passAgain = true;
 				}
-				freq[(current/Math.pow(10,step-1)) % 10].add(current);
+				int index = (current.getVal()/(int)Math.pow(10,step-1)) % 10;
+				freq[index].add(current.getVal());
 				current = current.getNext();
 			}
 			for(int i = 0; i < freq.length-1; i++) {
-				freq[i+1] = LinkedList.merge(freq[i],freq[i+1]);
+				if(freq[i].getStart() != null && freq[i+1].getStart() != null) {
+					freq[i+1] = LinkedList.merge(freq[i],freq[i+1]);
+				}
+				if(freq[i].getStart() != null && freq[i+1].getStart() == null) {
+					freq[i+1] = freq[i];
+				}
 			}
 			l = freq[9];
+			for(int i = 0; i < freq.length; i++) {
+				freq[i] = new LinkedList();
+			}
+			step++;
 		}
+		Node current = l.getStart();
 		for(int i = 0; i < data.length; i++) {
-			Node current = l.getStart();
 			data[i] = current.getVal();
 			current = current.getNext();
 		}
 	}
 	
-	public 
+	public static void main(String[] args) {
+		int[] test = {43,5,4,6,1,9,42,5,42,7,52,624,62,1,434,5713,5431,6,31,7};
+		sort(test);
+		System.out.println(Arrays.toString(test));
+		
+		
+	}
 	
 	
 	
