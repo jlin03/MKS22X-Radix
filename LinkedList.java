@@ -1,18 +1,15 @@
 public class LinkedList {
 	private Node start;
 	private Node end;
-	private LinkedList next;
 	
 	public LinkedList() {
 		start = null;
 		end = null;
-		next = null;
 	}
 	
 	public LinkedList(Node s, Node e) {
 		start = s;
 		end = e;
-		next = null;
 	}
 	
 	public void add(int x) {
@@ -31,12 +28,14 @@ public class LinkedList {
 		return start;
 	}
 	
-	public void setNext(LinkedList n) {
-		next = n;
+	public Node getEnd() {
+		return start;
 	}
 	
-	public LinkedList getNext() {
-		return next;
+	public static LinkedList merge(LinkedList one, LinkedList two) {
+		one.getEnd().setNext(two.getStart());
+		return new LinkedList(one.getStart(),two.getEnd());
 	}
+
 
 }
