@@ -32,6 +32,16 @@ public class LinkedList {
 		return start;
 	}
 	
+	public void toString() {
+		out = "[ ";
+		Node current = start;
+		while(!current.isEnd()) {
+			out += current.getVal() + " ";
+		}
+		out += "]";
+		return out;	
+	}
+	
 	public static LinkedList merge(LinkedList one, LinkedList two) {
 		if(one == null) {
 			return two;
