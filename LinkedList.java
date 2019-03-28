@@ -29,13 +29,20 @@ public class LinkedList {
 	}
 	
 	public Node getEnd() {
-		return start;
+		return end;
 	}
 	
 	public String toString() {
+		if(start == null) {
+			return "[]";
+		}
 		String out = "[ ";
 		Node current = start;
 		while(!current.isEnd()) {
+			out += current.getVal() + " ";
+			current = current.getNext();
+		}
+		if(current == end) {
 			out += current.getVal() + " ";
 		}
 		out += "]";
