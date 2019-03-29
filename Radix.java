@@ -1,6 +1,6 @@
 import java.util.*;
 public class Radix {
-	
+
 	public static void sort(int[] data) {
 		LinkedList[] freq = new LinkedList[10];
 		LinkedList l =  new LinkedList();
@@ -44,19 +44,6 @@ public class Radix {
 		}
 	}
 	
-	public static void main(String[] args) {
-		int[] test = {43,5,4,6,1,9,42,5,42,7,52,624,62,1,434,5713,5431,6,31,7};
-		sort(test);
-		System.out.println(Arrays.toString(test));
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 }
