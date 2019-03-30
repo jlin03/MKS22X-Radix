@@ -5,10 +5,17 @@ public class Driver {
     int range = Integer.parseInt(args[1]);
     Random r = new Random((int)System.currentTimeMillis());
     int[] ary = new int[size];
+	int[] copy = new int[size];
     for(int i = 0; i < ary.length; i++) {
-      ary[i] = r.nextInt();
+      ary[i] = Math.abs(r.nextInt());
+	  copy[i] = ary[i];
     }
-    
+	Arrays.sort(copy);
+	long x = System.currentTimeMillis();
+	Radix.sort(ary);
+	x = System.currentTimeMillis() - x;
+    System.out.println(x + " milliseconds");
+	System.out.println(Arrays.equals(ary,copy));
 
   }
 
