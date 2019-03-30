@@ -34,9 +34,11 @@ public class Radix {
 				if(i < 0) {
 					if(negFreq[i*-1].getStart() != null && negFreq[i*-1-1].getStart() != null) {
 						negFreq[i*-1-1] = LinkedList.merge(negFreq[i*-1],negFreq[i*-1-1]);
+						negFreq[i*-1] = null;
 					}
 					else if(negFreq[i*-1].getStart() != null && negFreq[i*-1-1].getStart() == null) {
 						negFreq[i*-1-1] = negFreq[i*-1];
+						negFreq[i*-1] = null;
 					}
 				}
 				if(i == 0 && negFreq[i].getStart() != null) {
@@ -46,13 +48,16 @@ public class Radix {
 					else {
 						freq[0] = negFreq[0];
 					}
+					negFreq[0] = null;
 				}
 				if(i >= 0) {
 					if(freq[i].getStart() != null && freq[i+1].getStart() != null) {
 						freq[i+1] = LinkedList.merge(freq[i],freq[i+1]);
+						freq[i] = null;
 					}
 					else if(freq[i].getStart() != null && freq[i+1].getStart() == null) {
 						freq[i+1] = freq[i];
+						freq[i] = null;
 					}
 				}
 			}
