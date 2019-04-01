@@ -24,7 +24,7 @@ public class Radix {
 					freq[9-index].add(current.getVal());
 				}
 				else {
-					freq[index].add(current.getVal());
+					freq[10+index].add(current.getVal());
 				}
 				current = current.getNext();
 			}
