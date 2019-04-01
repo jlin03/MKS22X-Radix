@@ -12,7 +12,7 @@ public class Driver {
     }
 	Arrays.sort(copy);
 	long x = System.currentTimeMillis();
-	Radix.sort(ary);
+	Radix.radixsort(ary);
 	x = System.currentTimeMillis() - x;
     System.out.println(x + " milliseconds");
 	System.out.println(Arrays.equals(ary,copy));
