@@ -18,7 +18,7 @@ public class Radix {
 		}
 
 		int step = 1;
-		while(step < max) {
+		while(step <= max) {
 			Node current = l.getStart();
 			for(int i = 0; i < data.length; i++) {
 				int index = Math.abs((current.getVal()/(int)Math.pow(10,step-1)) % 10);
@@ -30,17 +30,12 @@ public class Radix {
 				}
 				current = current.getNext();
 			}
-			for(int i = 0; i < freq.length-1; i++) {
-				if(freq[i].getStart() != null && freq[i+1].getStart() != null) {
-					freq[i+1] = LinkedList.merge(freq[i],freq[i+1]);
-					freq[i] = null;
-				}
-				else if(freq[i].getStart() != null && freq[i+1].getStart() == null) {
-					freq[i+1] = freq[i];
-					freq[i] = null;
+			l = new LinkedList();
+			for(int i = 0; i < freq.length; i++) {
+				if(freq[i].getStart() != null) {
+					l = LinkedList.merge(l,freq[i]);
 				}
 			}
-			l = freq[19];
 			for(int i = 0; i < freq.length; i++) {
 				freq[i] = new LinkedList();
 			}
