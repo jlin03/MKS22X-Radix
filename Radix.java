@@ -10,15 +10,17 @@ public class Radix {
 		for(int i = 0; i < freq.length; i++) {
 			freq[i] = new LinkedList();
 		}
-		boolean passAgain = true;
+		int max = 0;
+		for(int i = 0; i < data.length; i++) {
+			if((int)Math.log10(data[i]) + 1 > max) {
+				max = (int)Math.log10(data[i]) + 1;
+			}
+		}
+
 		int step = 1;
-		while(passAgain) {
-			passAgain = false;
+		while(step < max) {
 			Node current = l.getStart();
 			for(int i = 0; i < data.length; i++) {
-				if(current.getVal()/(int)Math.pow(10,step) != 0) {
-					passAgain = true;
-				}
 				int index = Math.abs((current.getVal()/(int)Math.pow(10,step-1)) % 10);
 				if(current.getVal() < 0) {
 					freq[9-index].add(current.getVal());
